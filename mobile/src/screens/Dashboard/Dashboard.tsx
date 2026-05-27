@@ -20,20 +20,72 @@ interface Relatorio {
   status: string;
 }
 
+interface SensorModulo {
+  id: number;
+  nome: string;
+  tipo: string;
+  status: string;
+  ultimaLeitura: number;
+}
+
+interface AlertaCritico {
+  id: number;
+  mensagem: string;
+  nivelSeveridade: string;
+  resolvido: boolean;
+}
+
 export function Dashboard({ navigation }: any) {
   const [filtroAtivo, setFiltroAtivo] = useState('Todos');
   const [relatorios, setRelatorios] = useState<Relatorio[]>([]);
   const [carregando, setCarregando] = useState(true);
   const isFocused = useIsFocused();
+  const [sensores, setSensores] = useState<SensorModulo[]>([]);
+  const [alertas, setAlertas] = useState<AlertaCritico[]>([]);
 
   const buscarDados = async () => {
     try {
       setCarregando(true);
-      // Ajuste o endpoint se no seu Controller o @RequestMapping for diferente de '/sistema-eventos'
-      const response = await api.get('/eventos');
-      setRelatorios(response.data);
+      
+      let dadosEventos = [];
+      let dadosSensores = [];
+      let dadosAlertas = [];
+
+      // 1. Busca Dinâmica de Eventos
+      try {
+        const res = await api.get('/api/eventos');
+        dadosEventos = res.data;
+      } catch (e) {
+        try {
+          const resAlternativa = await api.get('/eventos');
+          dadosEventos = resAlternativa.data;
+        } catch (err) {
+          console.log('Rota de eventos nao encontrada (404)');
+        }
+      }
+
+      // 2. Busca de Sensores
+      try {
+        const res = await api.get('/api/sensores');
+        dadosSensores = res.data;
+      } catch (e) {
+        console.log('Rota /api/sensores nao encontrada (404)');
+      }
+
+      // 3. Busca de Alertas - Apontando exatamente para o seu AlertaCriticoController
+      try {
+        const res = await api.get('/api/alertas');
+        dadosAlertas = res.data;
+      } catch (e) {
+        console.log('Rota /api/alertas nao encontrada (404)');
+      }
+
+      setRelatorios(dadosEventos || []);
+      setSensores(dadosSensores || []);
+      setAlertas(dadosAlertas || []);
+
     } catch (error) {
-      console.error('Erro ao buscar dados do backend:', error);
+      console.error('Erro geral ao buscar dados do backend:', error);
     } finally {
       setCarregando(false);
     }
@@ -46,7 +98,8 @@ export function Dashboard({ navigation }: any) {
   }, [isFocused]);
 
   const totalRegistros = relatorios.length;
-  const missoesAtivas = relatorios.filter(r => r.status === 'Ativo').length;
+  const totalSensoresAtivos = sensores.filter(s => s.status === 'ATIVO' || s.status === 'Ativo').length;
+  const totalAlertasCriticos = alertas.filter(a => !a.resolvido).length;
 
   const getStatusStyle = (status: string) => {
     switch (status) {
@@ -81,18 +134,20 @@ export function Dashboard({ navigation }: any) {
           </View>
 
           <View style={styles.metricCard}>
-            <Text style={styles.metricLabel}>Total de Registros</Text>
+            <Text style={styles.metricLabel}>Total de Registros (Eventos)</Text>
             <Text style={styles.metricValue}>{totalRegistros}</Text>
           </View>
 
           <View style={styles.metricCard}>
-            <Text style={styles.metricLabel}>Missões Ativas</Text>
-            <Text style={[styles.metricValue, { color: '#00ff66' }]}>{missoesAtivas}</Text>
+            <Text style={styles.metricLabel}>Módulos de Sensores Ativos</Text>
+            <Text style={[styles.metricValue, { color: '#00ff66' }]}>{totalSensoresAtivos}</Text>
           </View>
 
           <View style={styles.metricCard}>
-            <Text style={styles.metricLabel}>Última Atualização</Text>
-            <Text style={styles.metricValue}>Online</Text>
+            <Text style={styles.metricLabel}>Alertas Críticos Pendentes</Text>
+            <Text style={[styles.metricValue, { color: totalAlertasCriticos > 0 ? '#ff3333' : '#fff' }]}>
+              {totalAlertasCriticos}
+            </Text>
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterRow}>
