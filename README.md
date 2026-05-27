@@ -15,19 +15,33 @@ O ecossistema é dividido em três camadas principais:
 ---
 ## 📷 Demonstração do Sistema (Screenshots)
 
-<div align="center">
-  <img src="Banco de Dados.jpeg" width="45%" alt="Screenshot 1" />
-  <img src="Envio de Relatorio" width="45%" alt="Screenshot 2" />
-  <br/><br/>
-  <img src="Sensores.jpeg" width="45%" alt="Screenshot 3" />
-  <img src="Status - Ativo.jpeg" width="45%" alt="Screenshot 4" />
-  <br/><br/>
-  <img src="Status - Concluído.jpeg" width="45%" alt="Screenshot 5" />
-  <img src="Status - Pendente.jpeg" width="45%" alt="Screenshot 6" />
-  <br/><br/>
-  <img src="Tela Login.jpeg" width="45%" alt="Screenshot 7" />
-</div>
 
+<table align="center">
+  <tr>
+    <td align="center" valign="top">
+      <img src="screenshots/Tela Login.jpeg" width="15%" alt="Screenshot 1" />
+      <sub><b>Screenshot 1</b></sub>
+    </td>
+    <td align="center" valign="top">
+      <img src="screenshots/Envio de Relatorio.jpeg" width="15%" alt="Screenshot 2" />
+      <sub><b>Screenshot 2</b></sub>
+    </td>
+    <td align="center" valign="top">
+      <img src="screenshots/Status - Ativo.jpeg" width="15%" alt="Screenshot 3" />
+      <sub><b>Screenshot 3</b></sub>
+    </td>
+    <td align="center" valign="top">
+      <img src="screenshots/Status - Concluído.jpeg" width="15%" alt="Screenshot 4" />
+      <sub><b>Screenshot 4</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <img src="screenshots/Status - Pendente.jpeg" width="15%" alt="Screenshot 6" />
+      <sub><b>Screenshot 5</b></sub>
+    </td>
+  </tr>
+</table>
 ---
 
 ## 🚀 Como Executar o Projeto
