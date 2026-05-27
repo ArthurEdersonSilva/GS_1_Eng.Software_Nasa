@@ -1,5 +1,19 @@
 
+<div align="center">
+
+[![Engenharia de Software](https://img.shields.io/badge/Engenharia%20de%20Software-green?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ArthurEdersonSilva?tab=repositories&q=topic:engenharia-de-software)
+
+**Tecnologias Utilizadas:**
+
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361dafb)
+![Expo](https://img.shields.io/badge/expo-%23000020.svg?style=for-the-badge&logo=expo&logoColor=white)
+![H2 Database](https://img.shields.io/badge/H2%20Database-%234169E1.svg?style=for-the-badge&logo=databricks&logoColor=white)
+
 # 🚀 Global Solution - Sistema de Telemetria e Operações NASA/FIAP
+</div>
+
 
 Este projeto consiste em um ecossistema completo e integrado para o gerenciamento de telemetria, logs de missões espaciais e monitoramento de sensores operacionais. A solução é composta por uma API robusta desenvolvida em **Spring Boot (Java)** e um aplicativo móvel dinâmico construído com **React Native (Expo)**.
 
