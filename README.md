@@ -97,15 +97,18 @@ Alertas Críticos: /api/alertas
 
 ## 👥 Desenvolvedores
 👨‍💻 Arthur Ederson - Engenharia de Computação (FIAP)
+RM - 557079
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arthur-ederson-3a817285)
 
 
 👨‍💻 Lucas Cima - Engenharia de Computação (FIAP)
+RM - 564964
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-cima-a5a97920b/)
 
 
 👨‍💻 Pedro Schulz - Engenharia de Computação (FIAP)
+RM - 557936
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedroschulz/)
